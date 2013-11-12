@@ -43,7 +43,7 @@ public class UsagesActivity extends BaseActivity {
 	
 	private void init() {
 		setContentView(R.layout.activity_usages);
-		initLayout(R.string.title_activity_usages, true, true, true, true);
+		initLayout(R.string.title_activity_usages, true, true, false, false);
 
 		weekavg = (TextView) findViewById(R.id.weekavg);
 		monthavg = (TextView) findViewById(R.id.monthavg);
