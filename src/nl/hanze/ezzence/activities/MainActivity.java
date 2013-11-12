@@ -10,6 +10,7 @@ public class MainActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		initLayout(R.string.title_activity_settings, true, true, true, true);
 	}
 
 	@Override

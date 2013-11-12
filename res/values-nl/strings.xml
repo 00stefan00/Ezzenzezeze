@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Instellingen</string>
+    <string name="app_name">Ezzence</string>
+    <string name="Usages_button_text">Gas/Water/Elektra</string>
+    <string name="Temperature_button_text">Temperatuur</string>
+    <string name="Settings_button_text">Instellingen</string>
+
+    <!-- Base Activity -->
+    <string name="header_button_home">Home</string>
+    <string name="footer_button_back">Terug</string>
+    <string name="footer_button_menu_open">Open Menu</string>
+    <string name="footer_button_menu_close">Sluit Menu</string>
+    <string name="footer_button_ok">OK</string>
+    <color name="blue">#25383C</color>
+
+    <!-- Settings -->
+    <string name="title_activity_settings">Instellingen</string>
+    <string name="change_language">Wijzig taal</string>
+    <string name="font_scaling">Kies een font schaal</string>
+    <string name="apply">Toepassen</string>
+    <string name="small">Klein</string>
+    <string name="medium">Gemiddeld</string>
+    <string name="big">Groot</string>
+    <string name="language_picker">Kies uw taal</string>
+
+    <!-- Login Activity -->
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wachtwoord</string>
+    <string name="log_in">Log in</string>
+    <string name="username_description">Je gebruikersnaam</string>
+    <string name="password_description">Je wachtwoord</string>
+    <string name="pin_description">Gebruik pin</string>
+
+</resources>

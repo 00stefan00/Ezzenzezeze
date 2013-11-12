@@ -41,7 +41,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="64dp"
-            android:background="@drawable/smooth_top_edges"
+            android:background="@drawable/smooth_button"
             android:drawablePadding="5dip"
             android:gravity="left|center_vertical|right"
             android:onClick="startIntentByButton"
@@ -57,7 +57,7 @@
             android:layout_alignLeft="@+id/Button01"
             android:layout_alignRight="@+id/Button01"
             android:layout_below="@+id/Button01"
-            android:background="@drawable/smooth_top_edges"
+            android:background="@drawable/smooth_button"
             android:drawablePadding="5dip"
             android:gravity="left|center_vertical|right"
             android:onClick="startIntentByButton"
@@ -73,7 +73,7 @@
             android:layout_alignLeft="@+id/Button02"
             android:layout_alignRight="@+id/Button02"
             android:layout_below="@+id/Button02"
-            android:background="@drawable/smooth_top_edges"
+            android:background="@drawable/smooth_button"
             android:drawablePadding="5dip"
             android:gravity="left|center_vertical|right"
             android:onClick="startIntentByButton"
@@ -81,6 +81,14 @@
             android:paddingRight="15dp"
             android:tag="SettingsActivity"
             android:text="@string/Settings_button_text" />
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            layout="@layout/footer" />
+
     </RelativeLayout>
 
 </RelativeLayout>
