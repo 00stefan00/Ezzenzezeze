@@ -22,10 +22,6 @@ import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-/**
- * @author getConnected 2
- */
-
 public class UsagesActivity extends BaseActivity {
 	TableLayout tl;
 	ArrayList<ArrayList<View>> tableArray = new ArrayList<ArrayList<View>>();
@@ -43,7 +39,7 @@ public class UsagesActivity extends BaseActivity {
 	
 	private void init() {
 		setContentView(R.layout.activity_usages);
-		initLayout(R.string.title_activity_usages, true, true, false, false);
+		initLayout(R.string.title_activity_usages, true, true, true, false);
 
 		weekavg = (TextView) findViewById(R.id.weekavg);
 		monthavg = (TextView) findViewById(R.id.monthavg);
