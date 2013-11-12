@@ -14,14 +14,6 @@
         android:layout_height="wrap_content"
         layout="@layout/header" />
 
-    <Spinner
-        android:id="@+id/font_scale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_centerVertical="true" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -30,14 +22,6 @@
         android:layout_below="@+id/include1"
         android:singleLine="true"
         android:text="@string/language_picker" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/font_scale"
-        android:layout_alignParentLeft="true"
-        android:text="@string/font_scaling" />
 
     <RadioGroup
         android:id="@+id/languagePicker"
@@ -52,5 +36,44 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/languagePicker"
         layout="@layout/footer" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/languagePicker"
+        android:layout_marginTop="36dp"
+        android:text="@string/font_scaling" />
+
+    <Spinner
+        android:id="@+id/font_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1" />
+
+    <EditText
+        android:id="@+id/change_pin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="@string/set_pin"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/change_pin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/change_pin1"
+        android:layout_below="@+id/change_pin1"
+        android:ems="10"
+        android:hint="@string/confirm_pin"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
