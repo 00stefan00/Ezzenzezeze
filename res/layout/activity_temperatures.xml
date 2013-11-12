@@ -14,64 +14,38 @@
         android:layout_height="wrap_content"
         layout="@layout/header" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/include1"
-        android:layout_below="@+id/include1"
-        android:singleLine="true"
-        android:text="@string/language_picker" />
-
-    <RadioGroup
-        android:id="@+id/languagePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView" >
-    </RadioGroup>
-
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/languagePicker"
         layout="@layout/footer" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/gass_textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/languagePicker"
-        android:layout_marginTop="36dp"
-        android:text="@string/font_scaling" />
+        android:layout_below="@+id/include1"
+        android:text="@string/current_temp" />
 
-    <Spinner
-        android:id="@+id/font_scale"
+    <TextView
+        android:id="@+id/gass_textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1" />
-
-    <EditText
-        android:id="@+id/change_pin1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText1"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:hint="@string/set_pin"
-        android:inputType="number" />
+        android:layout_marginBottom="42dp"
+        android:text="@string/Change_temp" />
 
     <EditText
-        android:id="@+id/change_pin2"
+        android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/change_pin1"
-        android:layout_below="@+id/change_pin1"
+        android:layout_below="@+id/gass_textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp"
         android:ems="10"
-        android:hint="@string/confirm_pin"
-        android:inputType="number" >
+        android:hint="@string/temp_hint"
+        android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>

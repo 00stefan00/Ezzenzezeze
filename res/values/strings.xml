@@ -15,12 +15,21 @@
     <string name="footer_button_ok">OK</string>
 
     <color name="blue">#25383C</color>
-    
+
     <!-- Usages -->
-    <string name ="title_activity_usages">Usages</string>    
+    <string name="title_activity_usages">Usages</string>
     <string name="usage_type">Usage type</string>
-    
+    <string name="tableDate">Date</string>
+    <string name="tableValue">Value</string>
+    <string name="week_avg">Week Average</string>
+    <string name="month_avg">Month Average</string>
+    <string name="empty"></string>
+    <string name="Gass">Gas</string>
+    <string name="Electricity">Electricity</string>
+    <string name="Water">Water</string>
+
     <!-- Temperatures -->
+    <string name="title_activity_temperatures">Temperatures</string>
     <string name="current_temp">\? *C</string>
     <string name="Change_temp">Change current temperature</string>
     <string name="temp_hint">New temperature</string>
