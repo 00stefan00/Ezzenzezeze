@@ -7,6 +7,7 @@
     <string name="Temperature_button_text">Temperature</string>
     <string name="Settings_button_text">Settings</string>
     <string name="error_something_wrong">Something went wrong</string>
+    <string name="title_activity_main">Main Menu</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>

@@ -8,10 +8,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 import nl.hanze.ezzence.R;
+import nl.hanze.ezzence.config.Config;
+import nl.hanze.ezzence.network.RESTRequest;
 import nl.hanze.ezzence.security.Login;
+import nl.hanze.ezzence.utils.JSONParser;
 
 import java.util.HashMap;
 import java.util.Locale;
+
+import org.json.JSONObject;
 
 @SuppressLint("UseSparseArrays")
 public class SettingsActivity extends BaseActivity {
@@ -96,11 +101,13 @@ public class SettingsActivity extends BaseActivity {
 		if (pin1.length() != 0 && pin2.length() != 0) {
 			if (pin1.equals(pin2)) {
 				if (pin1.length() == 5) {
-					Login.createPinEntry(this, Integer.parseInt(pin1), getUsername(), getPassword());
+					Login.createPinEntry(this, Integer.parseInt(pin1),
+							getUsername(), getPassword());
 				} else {
-					Toast.makeText(this,
-							getString(R.string.pin_incorrect_size) + " " + pin1.length(),
-							Toast.LENGTH_SHORT).show();
+					Toast.makeText(
+							this,
+							getString(R.string.pin_incorrect_size) + " "
+									+ pin1.length(), Toast.LENGTH_SHORT).show();
 				}
 			} else {
 				Toast.makeText(this, getString(R.string.pin_not_equal),
@@ -120,6 +127,27 @@ public class SettingsActivity extends BaseActivity {
 		Locale locale = new Locale(languageToLoad);
 		Locale.setDefault(locale);
 		config.locale = locale;
+		request(locale.toString());
+	}
+
+	protected JSONObject request(String language) {
+		RESTRequest restRequest = new RESTRequest(Config.API_URL);
+
+		restRequest.putString(Config.KEY_NAME, Config.USER_NAME);
+		restRequest.putString(Config.KEY_METHOD, "getBasicNeeds");
+		restRequest.putString("login_token", login_token);
+		restRequest.putString("language", language);
+
+		JSONObject jsonObject = null;
+		try {
+			JSONParser jsonParser = JSONParser.getInstance();
+			String response = restRequest.execute().get();
+			Log.i("DEBUG", response);
+			jsonObject = jsonParser.getObjectFromRequest(response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return jsonObject;
 	}
 
 	/**
