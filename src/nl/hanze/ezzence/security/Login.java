@@ -1,8 +1,8 @@
 package nl.hanze.ezzence.security;
 
-import android.util.Log;
 import nl.hanze.ezzence.config.Config;
 import nl.hanze.ezzence.network.RESTRequest;
+import nl.hanze.ezzence.utils.JSONParser;
 import org.json.JSONObject;
 
 /**
@@ -24,15 +24,18 @@ public class Login {
 		restRequest.putString("username", username);
 		restRequest.putString("password", password);
 
-		Log.d("url", restRequest.toString());
 		JSONObject jsonObject = null;
 		try {
-//			JSONParser jsonParser = JSONParser.getInstance();
+			JSONParser jsonParser = JSONParser.getInstance();
 			String response = restRequest.execute().get();
+			jsonObject = jsonParser.getObjectFromRequest(response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return jsonObject;
 	}
 
+	public static void createCredentialsFile(String username, String password) {
+
+	}
 }

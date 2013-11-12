@@ -1,5 +1,6 @@
 package nl.hanze.ezzence.activities;
 
+import android.widget.Toast;
 import nl.hanze.ezzence.R;
 import nl.hanze.ezzence.animations.CollapseAnimation;
 import nl.hanze.ezzence.animations.ExpandAnimation;
@@ -14,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import org.json.JSONObject;
 
 
 public abstract class BaseActivity extends Activity {
@@ -176,6 +178,15 @@ public abstract class BaseActivity extends Activity {
 		}
 
 		return true;
+	}
+
+	protected JSONObject processRequest(JSONObject jsonObject) throws Exception {
+		if(jsonObject.getBoolean("error")) {
+			Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT);
+		} else {
+			return jsonObject;
+		}
+		return null;
 	}
 
 }
