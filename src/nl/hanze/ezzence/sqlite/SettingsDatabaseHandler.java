@@ -1,16 +1,16 @@
 package nl.hanze.ezzence.sqlite;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class SettingsDatabaseHandler extends SQLiteOpenHelper {
 
@@ -24,14 +24,28 @@ public class SettingsDatabaseHandler extends SQLiteOpenHelper {
 		this.context = context;
 	}
 
+	public List<HashMap<String, String>> findOneByPin(int pin) {
+		List<HashMap<String, String>> result = null;
+		try {
+			String[] columns = {"username", "password"};
+			String[] something = {};
+			result = this.sendQuery("users", columns, "WHERE pin = " + pin, null, null, null, "username", "1");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
+
 	/**
-	 * Creates, if not already exists, tables rides and joins
+	 * Creates, if not already exists, table users
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		try {
 			database.execSQL("CREATE TABLE users (username VARCHAR, password VARCHAR "
-					+ "pin INT)");
+					+ "pin INTEGER)");
 
 		} catch (SQLException e) {
 			Log.e("Database", "Cannot create database: " + e);

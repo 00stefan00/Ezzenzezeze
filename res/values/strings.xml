@@ -29,7 +29,7 @@
     <string name="Water">Water</string>
 
     <!-- Temperatures -->
-    <string name="title_activity_temperatures">Temperatures</string>
+    <string name ="title_activity_temperatures">Temperatures</string>   
     <string name="current_temp">\? *C</string>
     <string name="Change_temp">Change current temperature</string>
     <string name="temp_hint">New temperature</string>
@@ -55,5 +55,8 @@
     <string name="password_description">Your password</string>
     <string name="pin_description">Use pin</string>
     <string name="login_header">Login</string>
+    <string name="week_avg">Week Average</string>
+    <string name="month_avg">Month Average</string>
+    <string name="empty"></string>
 
 </resources>
