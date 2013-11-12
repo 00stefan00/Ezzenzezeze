@@ -1,9 +1,5 @@
 package nl.hanze.ezzence.activities;
 
-import android.widget.Toast;
-import nl.hanze.ezzence.R;
-import nl.hanze.ezzence.animations.CollapseAnimation;
-import nl.hanze.ezzence.animations.ExpandAnimation;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -15,7 +11,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import nl.hanze.ezzence.R;
+import nl.hanze.ezzence.animations.CollapseAnimation;
+import nl.hanze.ezzence.animations.ExpandAnimation;
+import nl.hanze.ezzence.config.Config;
+import nl.hanze.ezzence.security.Cryptor;
 import org.json.JSONObject;
+
+import java.io.*;
 
 
 public abstract class BaseActivity extends Activity {
@@ -197,7 +201,10 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected JSONObject processRequest(JSONObject jsonObject) throws Exception {
-		if(jsonObject.getBoolean("error")) {
+		if(jsonObject == null) {
+			Toast.makeText(this, R.string.error_something_wrong, Toast.LENGTH_SHORT);
+		}
+		else if(jsonObject.getBoolean("error")) {
 			Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_SHORT);
 		} else {
 			return jsonObject;
@@ -205,4 +212,43 @@ public abstract class BaseActivity extends Activity {
 		return null;
 	}
 
+	public String getUsername() {
+		String username = "";
+		try {
+			String content = getFileContent();
+			username = content.split(";")[0];
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return username;
+	}
+
+	protected String getPassword() {
+		String password = "";
+		try {
+			String content = getFileContent();
+			password = content.split(";")[1];
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return password;
+	}
+
+	protected String getFileContent() throws Exception {
+		File file = new File(getFilesDir(), Config.LOGIN_CREDENTIAL_FILE);
+		String content = "";
+		if(file.exists()) {
+			InputStream inputStream = new FileInputStream(file);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+			String receiveString;
+			StringBuilder stringBuilder = new StringBuilder();
+			while ((receiveString = bufferedReader.readLine()) != null) {
+				stringBuilder.append(receiveString);
+			}
+			content = Cryptor.decrypt(stringBuilder.toString());
+			bufferedReader.close();
+			inputStream.close();
+		}
+		return content;
+	}
 }

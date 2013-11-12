@@ -1,22 +1,17 @@
 package nl.hanze.ezzence.activities;
 
-import java.util.HashMap;
-import java.util.Locale;
-
-import nl.hanze.ezzence.R;
-import nl.hanze.ezzence.security.Login;
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.*;
+import nl.hanze.ezzence.R;
+import nl.hanze.ezzence.security.Login;
+
+import java.util.HashMap;
+import java.util.Locale;
 
 @SuppressLint("UseSparseArrays")
 public class SettingsActivity extends BaseActivity {
@@ -98,14 +93,13 @@ public class SettingsActivity extends BaseActivity {
 	private void changePin(View view) {
 		String pin1 = change_pin1.getText().toString();
 		String pin2 = change_pin2.getText().toString();
-		Login login = new Login();
 		if (pin1.length() != 0 && pin2.length() != 0) {
 			if (pin1.equals(pin2)) {
 				if (pin1.length() == 5) {
-					login.createPinEntry(Integer.parseInt(pin1));
+					Login.createPinEntry(this, Integer.parseInt(pin1), getUsername(), getPassword());
 				} else {
 					Toast.makeText(this,
-							getString(R.string.pin_incorrect_size),
+							getString(R.string.pin_incorrect_size) + " " + pin1.length(),
 							Toast.LENGTH_SHORT).show();
 				}
 			} else {

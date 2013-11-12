@@ -14,4 +14,6 @@ public class Config {
 	public static final String KEY_NAME = "name";
 	public static final String KEY_LOGIN_TOKEN = "login_token";
 	public static final String KEY_METHOD = "method";
+
+	public static final String LOGIN_CREDENTIAL_FILE = "loginCredentials.csf";
 }

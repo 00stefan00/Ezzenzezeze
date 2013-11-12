@@ -22,22 +22,27 @@ public class LoginActivity extends BaseActivity {
 	public void login(View view) {
 		EditText username = (EditText) findViewById(R.id.login_username);
 		EditText password = (EditText) findViewById(R.id.login_password);
-		JSONObject jsonObject = Login.login(username.getText().toString(), password.getText().toString());
+		JSONObject jsonObject = Login.login(this, username.getText().toString(), password.getText().toString());
+		setStuff(jsonObject);
+		startIntentByButton(view);
+	}
+
+	public void loginUsingPin(View view) {
+		EditText pin = (EditText) findViewById(R.id.login_pin);
+		JSONObject jsonObject = Login.loginUsingPin(this, pin.getText().toString());
+		setStuff(jsonObject);
+		startIntentByButton(view);
+	}
+
+	private void setStuff(JSONObject jsonObject) {
 		try{
 			jsonObject = processRequest(jsonObject);
 			if(jsonObject != null) {
 				super_user = jsonObject.getBoolean("super_user");
 				login_token = jsonObject.getString("login_token");
-
-				startIntentByButton(view);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-	}
-
-	public void loginUsingPin(View view) {
-
 	}
 }

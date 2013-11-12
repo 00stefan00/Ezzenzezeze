@@ -6,6 +6,7 @@
     <string name="Usages_button_text">Gas/Water/Electricity</string>
     <string name="Temperature_button_text">Temperature</string>
     <string name="Settings_button_text">Settings</string>
+    <string name="error_something_wrong">Something went wrong</string>
 
     <!-- Base Activity -->
     <string name="header_button_home">Home</string>
@@ -55,5 +56,6 @@
     <string name="password_description">Your password</string>
     <string name="pin_description">Use pin</string>
     <string name="login_header">Login</string>
+    <string name="use_pin">Your pin</string>
 
 </resources>

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SettingsDatabaseHandler extends SQLiteOpenHelper {
 
-	final static int DB_VERSION = 1;
+	final static int DB_VERSION = 2;
 	final static String DB_NAME = "Settings.s3db";
 
 	private Context context;
@@ -24,12 +24,11 @@ public class SettingsDatabaseHandler extends SQLiteOpenHelper {
 		this.context = context;
 	}
 
-	public List<HashMap<String, String>> findOneByPin(int pin) {
+	public List<HashMap<String, String>> findOneByPin(String pin) {
 		List<HashMap<String, String>> result = null;
 		try {
 			String[] columns = {"username", "password"};
-			String[] something = {};
-			result = this.sendQuery("users", columns, "WHERE pin = " + pin, null, null, null, "username", "1");
+			result = this.sendQuery("users", columns, "pin = '" + pin + "'", null, null, null, "username", "1");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,8 +43,7 @@ public class SettingsDatabaseHandler extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		try {
-			database.execSQL("CREATE TABLE users (username VARCHAR, password VARCHAR "
-					+ "pin INTEGER)");
+			database.execSQL("CREATE TABLE users (username VARCHAR, password VARCHAR, pin VARCHAR);");
 
 		} catch (SQLException e) {
 			Log.e("Database", "Cannot create database: " + e);
