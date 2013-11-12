@@ -11,15 +11,16 @@
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/username_description"
-			android:id="@+id/editText" android:layout_alignParentLeft="true" android:layout_marginLeft="122dp"
-			android:layout_alignTop="@+id/listView"/>
+			android:id="@+id/login_username" android:layout_alignParentLeft="true" android:layout_marginLeft="122dp"
+			android:layout_alignTop="@+id/listView" android:singleLine="false"
+			android:hint="@string/username_description" android:inputType="text|textNoSuggestions"/>
 	<EditText
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/password_description"
-			android:id="@+id/editText1"
-			android:layout_alignLeft="@+id/editText" android:layout_alignBottom="@+id/listView"/>
+			android:id="@+id/login_password"
+			android:layout_alignLeft="@+id/login_username" android:layout_alignBottom="@+id/listView"
+			android:hint="@string/password_description"
+			android:inputType="textPassword"/>
 	<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -31,22 +32,29 @@
 			android:layout_height="wrap_content"
 			android:text="@string/password"
 			android:id="@+id/textView1"
-			android:layout_alignLeft="@+id/listView" android:layout_alignTop="@+id/editText1"/>
+			android:layout_alignLeft="@+id/listView" android:layout_alignTop="@+id/login_password"/>
 	<Button
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/log_in"
-			android:id="@+id/button" android:layout_alignLeft="@+id/editText" android:layout_below="@+id/listView"
-			android:background="@drawable/smooth_top_edges"/>
+			android:id="@+id/button" android:layout_alignLeft="@+id/login_username" android:layout_below="@+id/listView"
+			android:background="@drawable/smooth_button"
+			android:onClick="login" />
 	<Button
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/pin_description"
 			android:id="@+id/button1"
-			android:layout_alignRight="@+id/editText" android:layout_below="@+id/listView"
-			android:background="@drawable/smooth_top_edges"/>
+			android:layout_alignRight="@+id/login_username" android:layout_below="@+id/listView"
+			android:background="@drawable/smooth_button"
+			android:onClick="loginUsingPin" />
+
 	<include android:layout_width="wrap_content"
 			 android:layout_height="wrap_content"
 			 layout="@layout/header" android:id="@+id/include" android:layout_alignLeft="@+id/listView"
 			 android:layout_alignParentTop="true"/>
+	<include android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 layout="@layout/footer" android:id="@+id/include1" android:layout_alignLeft="@+id/listView"
+			 android:layout_alignParentBottom="true"/>
 </RelativeLayout>

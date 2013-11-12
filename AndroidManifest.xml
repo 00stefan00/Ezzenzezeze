@@ -23,6 +23,7 @@
         </activity>
 		<activity android:name=".activities.SettingsActivity"/>
 		<activity android:name=".activities.BaseActivity"/>
+		<activity android:name=".activities.LoginActivity"/>
 	</application>
 
 </manifest>

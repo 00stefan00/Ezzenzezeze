@@ -31,5 +31,6 @@
     <string name="username_description">Your username</string>
     <string name="password_description">Your password</string>
     <string name="pin_description">Use pin</string>
+    <string name="login_header">Login</string>
 
 </resources>

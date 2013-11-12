@@ -30,11 +30,16 @@ public abstract class BaseActivity extends Activity {
 
 	protected static final String activityPackage = "nl.hanze.ezzence.activities";
 
-	protected static boolean loggedIn = false;
+	protected static String login_token = "";
+	protected static Boolean super_user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if(login_token.equals("") && !(this instanceof LoginActivity)) {
+			Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+			startActivity(intent);
+		}
 		setContentView(R.layout.footer);
 	}
 

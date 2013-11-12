@@ -1,6 +1,7 @@
 package nl.hanze.ezzence.network;
 
 import android.os.AsyncTask;
+import android.util.Base64;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -235,7 +236,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	}
 
 	/**
-	 * @param address
+	 * @param
 	 */
 	public void setID(String ID)
 	{
@@ -248,43 +249,7 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	 */
 	public void putString(String key, String value)
 	{
-		parameters.add(new BasicNameValuePair(key, value));
-	}
-	
-	/**
-	 * @param key
-	 * @param value
-	 */
-	public void putInt(String key, int value)
-	{
-		parameters.add(new BasicNameValuePair(key, Integer.toString(value)));
-	}
-	
-	/**
-	 * @param key
-	 * @param value
-	 */
-	public void putDouble(String key, double value)
-	{
-		parameters.add(new BasicNameValuePair(key, Double.toString(value)));
-	}
-
-	/**
-	 * @param key
-	 * @param value
-	 */
-	public void putFloat(String key, float value)
-	{
-		parameters.add(new BasicNameValuePair(key, Float.toString(value)));
-	}
-	
-	/**
-	 * @param key
-	 * @param value
-	 */
-	public void putBoolean(String key, boolean value)
-	{
-		parameters.add(new BasicNameValuePair(key, Boolean.toString(value)));
+		parameters.add(new BasicNameValuePair(key, encode(value)));
 	}
 	
 	/**
@@ -471,5 +436,15 @@ public class RESTRequest extends AsyncTask<Void, Void, String>
 	public String toString()
 	{
 		return address + "?" + URLEncodedUtils.format(parameters, "utf-8");
+	}
+
+	private String encode(String value) {
+		String returnSting = "";
+		try {
+			returnSting = Base64.encodeToString(value.getBytes("UTF-8"), Base64.NO_WRAP);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return returnSting;
 	}
 }
