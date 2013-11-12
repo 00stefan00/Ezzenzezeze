@@ -1,11 +1,10 @@
 package nl.hanze.ezzence.activities;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 import nl.hanze.ezzence.R;
+import android.os.Bundle;
+import android.view.Menu;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
