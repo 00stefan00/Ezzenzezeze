@@ -155,7 +155,7 @@ public abstract class BaseActivity extends Activity {
 			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
 					arrowUp, null);
 			MenuList.startAnimation(new CollapseAnimation(MenuList, 0,
-					(int) (screenHeight * 0.6), 10));
+					(int) (screenHeight * 0.35), 10));
 		} else {
 			buttonMenu.setText(getResources().getString(
 					R.string.footer_button_menu_close));
@@ -163,7 +163,7 @@ public abstract class BaseActivity extends Activity {
 			buttonMenu.setCompoundDrawablesWithIntrinsicBounds(null, null,
 					arrowDown, null);
 			MenuList.startAnimation(new ExpandAnimation(MenuList, 0,
-					(int) (screenHeight * 0.6), 10));
+					(int) (screenHeight * 0.35), 10));
 		}
 
 	}
