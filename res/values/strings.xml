@@ -5,6 +5,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="header_button_home">Home</string>
     <string name="app_name">Ezzence</string>
+    <string name="Usages_button_text">Gas/Water/Electricity</string>
+    <string name="Temperature_button_text">Temperature</string>
+    <string name="Settings_button_text">Settings</string>
+    
+    
+    
+    
     
 
 </resources>
