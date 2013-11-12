@@ -30,7 +30,7 @@ public class SettingsDatabaseHandler extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		try {
-			database.execSQL("CREATE TABLE users (username VARCHAR, "
+			database.execSQL("CREATE TABLE users (username VARCHAR, password VARCHAR "
 					+ "pin INT)");
 
 		} catch (SQLException e) {

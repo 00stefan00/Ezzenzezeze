@@ -12,7 +12,7 @@ import org.json.JSONObject;
  */
 public class Login {
 
-	public void createPinEntry() {
+	public void createPinEntry(int pin) {
 
 	}
 

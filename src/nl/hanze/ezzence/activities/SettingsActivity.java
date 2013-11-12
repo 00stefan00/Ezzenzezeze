@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import nl.hanze.ezzence.R;
+import nl.hanze.ezzence.security.Login;
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -97,10 +98,11 @@ public class SettingsActivity extends BaseActivity {
 	private void changePin(View view) {
 		String pin1 = change_pin1.getText().toString();
 		String pin2 = change_pin2.getText().toString();
+		Login login = new Login();
 		if (pin1.length() != 0 && pin2.length() != 0) {
 			if (pin1.equals(pin2)) {
 				if (pin1.length() == 5) {
-					//TODO JOHAN
+					login.createPinEntry(Integer.parseInt(pin1));
 				} else {
 					Toast.makeText(this,
 							getString(R.string.pin_incorrect_size),
