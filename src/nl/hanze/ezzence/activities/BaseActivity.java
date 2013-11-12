@@ -1,6 +1,8 @@
 package nl.hanze.ezzence.activities;
 
 import nl.hanze.ezzence.R;
+import nl.hanze.ezzence.animations.CollapseAnimation;
+import nl.hanze.ezzence.animations.ExpandAnimation;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -13,8 +15,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.app.getconnected.animations.CollapseAnimation;
-import com.app.getconnected.animations.ExpandAnimation;
 
 public abstract class BaseActivity extends Activity {
 

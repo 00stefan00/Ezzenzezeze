@@ -1,4 +1,4 @@
-package com.app.getconnected.animations;
+package nl.hanze.ezzence.animations;
 
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
