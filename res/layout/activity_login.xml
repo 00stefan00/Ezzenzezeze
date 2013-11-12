@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+	<ListView
+			android:layout_width="wrap_content"
+			android:layout_height="113dp"
+			android:id="@+id/listView"
+			android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_marginTop="70dp"/>
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/username_description"
+			android:id="@+id/editText" android:layout_alignParentLeft="true" android:layout_marginLeft="122dp"
+			android:layout_alignTop="@+id/listView"/>
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/password_description"
+			android:id="@+id/editText1"
+			android:layout_alignLeft="@+id/editText" android:layout_alignBottom="@+id/listView"/>
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/username"
+			android:id="@+id/textView" android:layout_alignLeft="@+id/listView"
+			android:layout_alignTop="@+id/listView"/>
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/password"
+			android:id="@+id/textView1"
+			android:layout_alignLeft="@+id/listView" android:layout_alignTop="@+id/editText1"/>
+	<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/log_in"
+			android:id="@+id/button" android:layout_alignLeft="@+id/editText" android:layout_below="@+id/listView"
+			android:background="@drawable/smooth_top_edges"/>
+	<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/pin_description"
+			android:id="@+id/button1"
+			android:layout_alignRight="@+id/editText" android:layout_below="@+id/listView"
+			android:background="@drawable/smooth_top_edges"/>
+	<include android:layout_width="wrap_content"
+			 android:layout_height="wrap_content"
+			 layout="@layout/header" android:id="@+id/include" android:layout_alignLeft="@+id/listView"
+			 android:layout_alignParentTop="true"/>
+</RelativeLayout>

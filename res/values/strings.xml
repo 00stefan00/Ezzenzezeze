@@ -8,10 +8,13 @@
     <string name="Usages_button_text">Gas/Water/Electricity</string>
     <string name="Temperature_button_text">Temperature</string>
     <string name="Settings_button_text">Settings</string>
-    
-    
-    
-    
-    
+
+	<!-- Login Activity -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="username_description">Your username</string>
+    <string name="password_description">Your password</string>
+    <string name="pin_description">Use pin</string>
 
 </resources>
