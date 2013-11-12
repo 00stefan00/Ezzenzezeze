@@ -38,11 +38,27 @@ public abstract class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		isLoggedIn();
+		setContentView(R.layout.footer);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		isLoggedIn();
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		isLoggedIn();
+	}
+
+	protected void isLoggedIn() {
 		if(login_token.equals("") && !(this instanceof LoginActivity)) {
 			Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
 			startActivity(intent);
 		}
-		setContentView(R.layout.footer);
 	}
 
 	/**
