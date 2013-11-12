@@ -1,8 +1,9 @@
-package nl.hanze.ezzence;
+package nl.hanze.ezzence.activities;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import nl.hanze.ezzence.R;
 
 public class MainActivity extends Activity {
 
