@@ -1,16 +1,5 @@
 package nl.hanze.ezzence.activities;
 
-import java.util.ArrayList;
-
-import nl.hanze.ezzence.R;
-import nl.hanze.ezzence.config.Config;
-import nl.hanze.ezzence.network.RESTRequest;
-import nl.hanze.ezzence.utils.JSONParser;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +10,15 @@ import android.widget.TableLayout;
 import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
+import nl.hanze.ezzence.R;
+import nl.hanze.ezzence.config.Config;
+import nl.hanze.ezzence.network.RESTRequest;
+import nl.hanze.ezzence.utils.JSONParser;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class UsagesActivity extends BaseActivity {
 	TableLayout tl;
@@ -179,34 +177,6 @@ public class UsagesActivity extends BaseActivity {
 
 		tl.setStretchAllColumns(true);
 	}
-
-	//
-	// protected void getMoreInformation(JSONObject obj) {
-	// Intent i = new Intent(UsagesActivity.this, JoinRideActivity.class);
-	// i.putExtra("json", obj.toString());
-	// startActivity(i);
-	// }
-	//
-	// /**
-	// * Shows the date picker
-	// *
-	// * @param v
-	// */
-	// public void showDatePickerDialog(View v) {
-	// DialogFragment newFragment = new DatePickerFragment();
-	// newFragment.show(getFragmentManager(), "datePicker");
-	//
-	// if (DatePickerFragment.year == 2014) {
-	// tl.removeAllViewsInLayout();
-	// tableinit();
-	// }
-	// if (DatePickerFragment.year == 2013) {
-	// tl.removeAllViewsInLayout();
-	// tableinit();
-	// }
-	// tl.invalidate();
-	// tl.refreshDrawableState();
-	// }
 
 	private int getColor() {
 		isGray = !isGray;
