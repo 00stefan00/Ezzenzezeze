@@ -69,6 +69,16 @@
         <requestFocus />
     </EditText>
 
+	<ToggleButton
+			android:id="@+id/toggleButton1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="50dp"
+			android:textOff="@string/temperature_perms"
+			android:textOn="@string/temperature_perms" />
+
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

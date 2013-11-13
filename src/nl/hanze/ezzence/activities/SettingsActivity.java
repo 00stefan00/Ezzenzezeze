@@ -12,17 +12,17 @@ import nl.hanze.ezzence.config.Config;
 import nl.hanze.ezzence.network.RESTRequest;
 import nl.hanze.ezzence.security.Login;
 import nl.hanze.ezzence.utils.JSONParser;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Locale;
-
-import org.json.JSONObject;
 
 @SuppressLint("UseSparseArrays")
 public class SettingsActivity extends BaseActivity {
 
 	EditText change_pin1, change_pin2;
 	RadioGroup languageOptions;
+	ToggleButton toggleButton1;
 	int currentScaleChoice = -1;
 	int currentLanguageChoice = -1;
 	final static int ENGLISH = 0;
@@ -52,6 +52,18 @@ public class SettingsActivity extends BaseActivity {
 		languageOptions = (RadioGroup) findViewById(R.id.languagePicker);
 		change_pin1 = (EditText) findViewById(R.id.change_pin1);
 		change_pin2 = (EditText) findViewById(R.id.change_pin2);
+		toggleButton1 = (ToggleButton) findViewById(R.id.toggleButton1);
+
+		toggleButton1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				processToggle(isChecked);
+			}
+		});
+
+		if(!super_user){
+			toggleButton1.setVisibility(View.INVISIBLE);
+		}
 		initLanguagePicker();
 	}
 
@@ -114,6 +126,32 @@ public class SettingsActivity extends BaseActivity {
 						Toast.LENGTH_SHORT).show();
 			}
 		}
+	}
+
+	protected void processToggle(boolean isChecked) {
+		request(isChecked);
+
+	}
+
+	protected JSONObject request(Boolean bool) {
+		RESTRequest restRequest = new RESTRequest(Config.API_URL);
+
+		restRequest.putString(Config.KEY_NAME, Config.USER_NAME);
+		restRequest.putString(Config.KEY_METHOD, "setSettingTemp");
+		restRequest.putString("login_token", login_token);
+		restRequest.putString("temp", bool.toString());
+		Log.i("DEBUG", ""+restRequest);
+
+		JSONObject jsonObject = null;
+		try {
+			JSONParser jsonParser = JSONParser.getInstance();
+			String response = restRequest.execute().get();
+			Log.i("DEBUG", response);
+			jsonObject = jsonParser.getObjectFromRequest(response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return jsonObject;
 	}
 
 	/**

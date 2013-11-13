@@ -51,6 +51,7 @@
     <string name="confirm_pin">confirm new pin</string>
     <string name="pin_incorrect_size">Pin should be 5 digits long</string>
     <string name="pin_not_equal">Pincodes were not the same</string>
+	<string name="temperature_perms">Only superusers can change temperatures</string>
 
     <!-- Login Activity -->
     <string name="username">Username</string>
